@@ -7,7 +7,11 @@ public class CompositeBlockImp implements CompositeBlock {
     private final List<Block> blocks = new ArrayList<>();
 
     public void add(Block block) {
-            getBlocks().add(block);
+        blocks.add(block);
+    }
+
+    public void remove(Block block){
+        blocks.remove(block);
     }
 
     @Override

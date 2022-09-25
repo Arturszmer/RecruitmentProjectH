@@ -1,5 +1,6 @@
 package main.tests;
 
+import main.modules.Block;
 import main.modules.BlockEntity;
 import main.modules.CompositeBlockImp;
 import main.service.Wall;
@@ -22,9 +23,20 @@ class WallTest {
     }
 
     @org.junit.jupiter.api.Test
-    void countCompositeWall() {
+    void countBlocks() {
         Wall wall = dataBlocks();
         assertEquals(wall.count(), 5);
+    }
+
+    @org.junit.jupiter.api.Test
+    void removeBlock() {
+        CompositeBlockImp compositeBlockImp = new CompositeBlockImp();
+        compositeBlockImp.add(new BlockEntity("red", "brick"));
+        compositeBlockImp.add(new BlockEntity("white", "brick"));
+        Wall wall = new Wall(compositeBlockImp);
+        Block redBlock = (Block) wall.findBlockByColor("red").orElseThrow();
+        compositeBlockImp.remove(redBlock);
+        assertEquals(wall.count(), 1);
     }
 
 
