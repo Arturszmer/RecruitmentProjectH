@@ -1,15 +1,13 @@
 package main.service;
 
 import main.modules.Block;
-import main.modules.BlockEntity;
 import main.modules.CompositeBlock;
-import main.modules.CompositeBlockImp;
 
 import java.util.List;
 import java.util.Optional;
 
 public class Wall implements Structure{
-    private List<Block> blocks;
+    private final List<Block> blocks;
 
     public Wall(CompositeBlock compositeBlock) {
         this.blocks = compositeBlock.getBlocks();
