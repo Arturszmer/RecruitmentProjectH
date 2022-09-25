@@ -6,8 +6,8 @@ import java.util.List;
 public class CompositeBlockImp implements CompositeBlock {
     private final List<Block> blocks = new ArrayList<>();
 
-    public void add(Block block){
-        getBlocks().add(block);
+    public void add(Block block) {
+            getBlocks().add(block);
     }
 
     @Override
@@ -17,12 +17,12 @@ public class CompositeBlockImp implements CompositeBlock {
 
     @Override
     public String getColor() {
-        return null;
+        return blocks.stream().findFirst().orElseThrow().getColor();
     }
 
     @Override
     public String getMaterial() {
-        return null;
+        return blocks.stream().findFirst().orElseThrow().getMaterial();
     }
 }
 
